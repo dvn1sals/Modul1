@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjumlahan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            text-align: center;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            width: 100px;
+            margin: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #btnAdd {
+            background-color: #f47fb0;
+            color: white;
+        }
+        #btnReset {
+            background-color: #8f4ef0;
+            color: white;
+        }
+        #result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Penjumlahan</h2>
+        <label for="num1">Bilangan pertama</label>
+        <input type="number" id="num1" placeholder="Masukkan angka pertama">
+        
+        <label for="num2">Bilangan kedua</label>
+        <input type="number" id="num2" placeholder="Masukkan angka kedua">
+        
+        <div style="text-align:center;">
+            <button id="btnAdd" onclick="addNumbers()">Jumlahkan</button>
+            <button id="btnReset" onclick="resetFields()">Reset</button>
+        </div>
+
+        <div id="result">Hasil: <span id="output">0</span></div>
+    </div>
+
+    <script>
+        function addNumbers() {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            let sum = num1 + num2;
+            document.getElementById('output').innerText = sum;
+        }
+
+        function resetFields() {
+            document.getElementById('num1').value = '';
+            document.getElementById('num2').value = '';
+            document.getElementById('output').innerText = '0';
+        }
+    </script>
+</body>
+</html>

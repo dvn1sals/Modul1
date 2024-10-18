@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran</title>
+    <style>
+        body {
+            background-color: #3d5687;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            background-color: #EBBAC2;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h3 {
+            color: #4c3496;
+            text-align: center;
+        }
+        label {
+            display: block;
+            color: rgb(40, 25, 111);
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #333;
+        }
+        .error {
+            color: #ff3333;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h3>Form Pendaftaran</h3>
+        <form id="formPendaftaran" onsubmit="return validateForm()">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" placeholder="Masukkan nama">
+            <span id="namaError" class="error"></span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Masukkan email">
+            <span id="emailError" class="error"></span>
+
+            <label for="alamat">Alamat Lengkap:</label>
+            <textarea id="alamat" placeholder="Masukkan alamat lengkap"></textarea>
+            <span id="alamatError" class="error"></span>
+
+            <button type="submit">Daftar</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+
+            // Mengvalidasi
+            let nama = document.getElementById('nama').value;
+            let email = document.getElementById('email').value;
+            let alamat = document.getElementById('alamat').value;
+
+            
+            let namaError = document.getElementById('namaError');
+            let emailError = document.getElementById('emailError');
+            let alamatError = document.getElementById('alamatError');
+
+            
+            namaError.innerText = '';
+            emailError.innerText = '';
+            alamatError.innerText = '';
+
+           
+            if (nama === '') {
+                namaError.innerText = 'Nama tidak boleh kosong';
+                isValid = false;
+            }
+
+            
+            if (email === '') {
+                emailError.innerText = 'Email tidak boleh kosong';
+                isValid = false;
+            }
+
+            
+            if (alamat === '') {
+                alamatError.innerText = 'Alamat lengkap tidak boleh kosong';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+    </script>
+
+</body>
+</html>
